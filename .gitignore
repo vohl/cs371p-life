@@ -1,0 +1,9 @@
+.DS_Store
+*.gcda
+*.gcno
+*.gcov
+RunLife.in
+gmon.out
+tmp.txt
+latex
+Doxyfile
