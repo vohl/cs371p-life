@@ -18,17 +18,19 @@ class Cell{
 
 };
 
+//inherits from abstract cell
 //------------
 // ConwayCell
 //------------
-class ConwayCell{
+class ConwayCell : public AbstractCell{
 
 };
 
+//inherits
 //-------------
 // FredkinCell
 //-------------
-class FredkinCell{
+class FredkinCell : public AbstractCell{
 
 };
 
