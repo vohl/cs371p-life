@@ -92,7 +92,7 @@ private:
 public:
     Cell();
 
-    Cell(char alive);
+    Cell(char state);
 
     Cell(const Cell& rhs);
 
@@ -100,6 +100,8 @@ public:
 
     ~Cell();
 
+    //This can be used to get the pointer indirectly call 
+    //methods belonging to that little turdNugget
     AbstractCell * operator ->();
 
     bool isAlive();
