@@ -16,16 +16,13 @@ using namespace std;
 class AbstractCell{
 protected:
     char _state;
-    bool _life;
 public:
     AbstractCell(char state);
-
-    ~AbstractCell();
 
     //a getter for your life, but techinically just telling
     //me if you are alive/ I dont necceserily have to maintain
     //a private member that represent if you are alive
-    bool isAlive();
+    virtual bool isAlive() = 0;
 
     //should this cell consider diagonal neighbors??
     virtual bool countDiagonals() = 0;
@@ -42,6 +39,8 @@ public:
 // ConwayCell
 //------------
 class ConwayCell : public AbstractCell{
+private:
+	bool _life;
 public:
     ConwayCell(char state);
 
@@ -61,6 +60,7 @@ public:
 class FredkinCell : public AbstractCell{
 private:
     int _age;
+    bool _life;
 public:
     FredkinCell(char state);
 
