@@ -123,7 +123,7 @@ public:
 
     void readInGrid(istream & r);
 
-    void simulate(int evolution, int step);
+    void simulate(int evolution, int step = 1);
 
     vector<value_type>::iterator begin();
 
