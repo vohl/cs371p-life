@@ -17,6 +17,8 @@ class AbstractCell{
 protected:
     char _state;
 public:
+    AbstractCell();
+
     AbstractCell(char state);
 
     //a getter for your life, but techinically just telling
@@ -42,9 +44,13 @@ class ConwayCell : public AbstractCell{
 private:
 	bool _life;
 public:
+    ConwayCell();
+
     ConwayCell(char state);
 
     ~ConwayCell();
+
+    bool isAlive();
 
     bool countDiagonals();
 
@@ -62,9 +68,13 @@ private:
     int _age;
     bool _life;
 public:
+    FredkinCell();
+
     FredkinCell(char state);
 
     ~FredkinCell();
+
+    bool isAlive();
 
     bool countDiagonals();
 
@@ -80,6 +90,8 @@ class Cell{
 private:
     AbstractCell * _handle_cell;
 public:
+    Cell();
+
     Cell(char alive);
 
     Cell(const Cell& rhs);
@@ -89,6 +101,8 @@ public:
     ~Cell();
 
     AbstractCell * operator ->();
+
+    bool isAlive();
 
     bool countDiagonals();
 

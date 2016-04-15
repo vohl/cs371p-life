@@ -30,11 +30,15 @@ ostream& operator <<(ostream& lhs, const Cell& rhs){
 //--------------
 // AbstractCell
 //--------------
+AbstractCell::AbstractCell();
+
 AbstractCell::AbstractCell(char state) : _state(state){}
 
 //------------
 // ConwayCell
 //------------
+ConwayCell::ConwayCell() : AbstractCell(), _life(false){}
+
 ConwayCell::ConwayCell(char state) : AbstractCell(state){
     if (state == '*'){
         _life = true;
@@ -42,6 +46,10 @@ ConwayCell::ConwayCell(char state) : AbstractCell(state){
     else if (state == '.'){
         _life = false;
     }
+}
+
+bool ConwayCell::isAlive(){
+	return _life;
 }
 
 bool ConwayCell::countDiagonals(){
@@ -66,6 +74,7 @@ void ConwayCell::updateLife(int neighbors){
 //-------------
 // FredkinCell
 //-------------
+FredkinCell::FredkinCell() : AbstractCell(), _life(false), _age(0){}
 
 FredkinCell::FredkinCell(char state) : AbstractCell(state){
     if (state == '-'){
@@ -80,6 +89,10 @@ FredkinCell::FredkinCell(char state) : AbstractCell(state){
         _life = true;
         _age = state - '0';
     }
+}
+
+bool FredkinCell::isAlive(){
+	return _life;
 }
 
 bool FredkinCell::countDiagonals(){
@@ -112,3 +125,8 @@ void FredkinCell::updateLife(int neighbors){
 		}
 	}
 }
+
+//
+// Cell
+//
+
