@@ -24,7 +24,7 @@ ostream& operator <<(ostream& lhs, const FredkinCell& rhs){
 }
 
 ostream& operator <<(ostream& lhs, const Cell& rhs){
-	return lhs << (*(rhs._handle_cell));
+	return lhs << (rhs._handle_cell)->_state;
 }
 
 //--------------
