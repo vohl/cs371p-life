@@ -50,7 +50,7 @@ bool ConwayCell::countDiagonals(){
 
 void ConwayCell::updateLife(int neighbors){
     if (_life){
-        if (neighbors < 2 || neighbors > 3){
+        if (neighbors < 2 && neighbors > 3){
             _life = false;
             _state = '.';
         }
@@ -76,8 +76,9 @@ FredkinCell::FredkinCell(char state) : AbstractCell(state){
         _life = true;
         _age = 10;
     }
-    else if (){
-        
+    else if (state >= '0' && state <= '9'){
+        _life = true;
+        _age = state - '0';
     }
 }
 
@@ -86,5 +87,28 @@ bool FredkinCell::countDiagonals(){
 }
 
 void FredkinCell::updateLife(int neighbors){
-
+	if (_life){
+		if((neighbors%2) == 0){
+			_life = false;
+			_state = '-';
+			_age = 0;
+		}
+		else{
+			if(_age < 9){
+				++_age;
+				_state = _age + '0';
+			}
+			else{
+				_age = 10;
+				_state = '+';
+			}
+		}
+	}
+	else{
+		if((neighbors%2) == 1){
+			_life = true;
+			_state = '0';
+			_age = 0;
+		}
+	}
 }
