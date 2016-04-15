@@ -65,8 +65,8 @@ public:
 //-------------
 class FredkinCell : public AbstractCell{
 private:
-    int _age;
     bool _life;
+    int _age;
 public:
     FredkinCell();
 
@@ -116,7 +116,7 @@ public:
 //------
 // Life
 //------
-Template<typename T>
+template<typename T>
 class Life{
 public:
     using value_type = T;
@@ -141,17 +141,17 @@ public:
 
     void simulate(int evolution, int step = 1);
 
-    vector<value_type>::iterator begin();
+    // vector<value_type>::iterator begin();
 
-    vector<value_type>::const_iterator begin() const;
+    // vector<value_type>::const_iterator begin() const;
 
-    vector<value_type>::iterator end();
+    // vector<value_type>::iterator end();
 
-    vector<value_type>::const_iterator end() const;
+    // vector<value_type>::const_iterator end() const;
 
-    reference at(size_type);
+    // reference at(size_type);
 
-    const_reference at(size_type) const;
+    // const_reference at(size_type) const;
 
     bool operator == (const Life &rhs);
 
@@ -162,4 +162,4 @@ public:
     bool operator != (const Life &rhs) const;
 };
 
-#endif LIFE_H
+#endif

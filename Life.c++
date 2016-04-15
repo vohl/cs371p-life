@@ -10,29 +10,10 @@
 
 using namespace std;
 
-//------------------
-// friend_functions
-//------------------
-ostream& operator <<(ostream& lhs, const AbstractCell& rhs){
-	return lhs << rhs._state;
-}
-
-ostream& operator <<(ostream& lhs, const ConwayCell& rhs){
-	return lhs << rhs._state;
-}
-
-ostream& operator <<(ostream& lhs, const FredkinCell& rhs){
-	return lhs << rhs._state;
-}
-
-ostream& operator <<(ostream& lhs, const Cell& rhs){
-	return lhs << (rhs._handle_cell)->_state;
-}
-
 //--------------
 // AbstractCell
 //--------------
-AbstractCell::AbstractCell();
+AbstractCell::AbstractCell(){}
 
 AbstractCell::AbstractCell(char state) : _state(state){}
 
@@ -131,48 +112,68 @@ void FredkinCell::updateLife(int neighbors){
 //
 // Cell
 //
-Cell::Cell(){
-	_handle_cell = new ConwayCell();
+// Cell::Cell(){
+// 	_handle_cell = new ConwayCell();
+// }
+
+// Cell::Cell(char state){
+// 	if (state == '.' || state == '*'){
+// 		_handle_cell = new ConwayCell(state);
+// 	}
+// 	else if (state == '-' || (state >= '0' && state < '2')){
+// 		_handle_cell = new FredkinCell(state);
+// 	}
+// 	else if (state == '+' || (state >= '2' && state <= '9')){
+// 		_handle_cell = new ConwayCell('*');
+// 	}
+// }
+
+// Cell::Cell(const Cell& rhs){
+// 	_handle_cell = rhs._handle_cell;
+// }
+
+// Cell& Cell::operator =(const Cell& rhs){
+// 	_handle_cell = rhs._handle_cell;
+// 	return * this;
+// }
+
+// Cell::~Cell(){
+// 	delete _handle_cell;
+// }
+
+// AbstractCell * Cell::operator ->(){
+// 	return _handle_cell;
+// }
+
+// bool Cell::isAlive(){
+// 	return _handle_cell->isAlive();
+// }
+
+// bool Cell::countDiagonals(){
+// 	return _handle_cell->countDiagonals();
+// }
+
+// void Cell::updateLife(int neighbors){
+// 	_handle_cell->updateLife(neighbors);
+// }
+
+//------------------
+// friend_functions
+//------------------
+ostream& operator <<(ostream& lhs, const AbstractCell& rhs){
+	return lhs << rhs._state;
 }
 
-Cell::Cell(char state){
-	if (state == '.' || state == '*'){
-		_handle_cell = new ConwayCell(state);
-	}
-	else if (state == '-' || (state >= '0' && state < '2')){
-		_handle_cell = new FredkinCell(state);
-	}
-	else if (state == '+' || (state >= '2' && state <= '9')){
-		_handle_cell = new ConwayCell('*');
-	}
+ostream& operator <<(ostream& lhs, const ConwayCell& rhs){
+	return lhs << rhs._state;
 }
 
-Cell::Cell(const Cell& rhs){
-	_handle_cell = rhs._handle_cell;
+ostream& operator <<(ostream& lhs, const FredkinCell& rhs){
+	return lhs << rhs._state;
 }
 
-Cell& operator =(const Cell& rhs){
-	_handle_cell = rhs._handle_cell;
-}
-
-Cell::~Cell(){
-	delete _handle_cell;
-}
-
-AbstractCell * Cell::operator ->(){
-	return _handle_cell;
-}
-
-bool Cell::isAlive(){
-	return _handle_cell->isAlive();
-}
-
-bool Cell::countDiagonals(){
-	return _handle_cell->countDiagonals();
-}
-
-void Cell::updateLife(int neighbors){
-	_handle_cell->updateLife(neighbors);
+ostream& operator <<(ostream& lhs, const Cell& rhs){
+	return lhs << (rhs._handle_cell)->_state;
 }
 
 //------
