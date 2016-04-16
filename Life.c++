@@ -17,6 +17,8 @@ AbstractCell::AbstractCell(){}
 
 AbstractCell::AbstractCell(char state) : _state(state){}
 
+AbstractCell::~AbstractCell(){}
+
 //------------
 // ConwayCell
 //------------
@@ -30,6 +32,8 @@ ConwayCell::ConwayCell(char state) : AbstractCell(state){
         _life = false;
     }
 }
+
+ConwayCell::~ConwayCell(){}
 
 bool ConwayCell::isAlive(){
 	return _life;
@@ -74,6 +78,8 @@ FredkinCell::FredkinCell(char state) : AbstractCell(state){
     }
 }
 
+FredkinCell::~FredkinCell(){}
+
 bool FredkinCell::isAlive(){
 	return _life;
 }
@@ -112,50 +118,50 @@ void FredkinCell::updateLife(int neighbors){
 //
 // Cell
 //
-// Cell::Cell(){
-// 	_handle_cell = new ConwayCell();
-// }
+Cell::Cell(){
+	_handle_cell = new ConwayCell();
+}
 
-// Cell::Cell(char state){
-// 	if (state == '.' || state == '*'){
-// 		_handle_cell = new ConwayCell(state);
-// 	}
-// 	else if (state == '-' || (state >= '0' && state < '2')){
-// 		_handle_cell = new FredkinCell(state);
-// 	}
-// 	else if (state == '+' || (state >= '2' && state <= '9')){
-// 		_handle_cell = new ConwayCell('*');
-// 	}
-// }
+Cell::Cell(char state){
+	if (state == '.' || state == '*'){
+		_handle_cell = new ConwayCell(state);
+	}
+	else if (state == '-' || (state >= '0' && state < '2')){
+		_handle_cell = new FredkinCell(state);
+	}
+	else if (state == '+' || (state >= '2' && state <= '9')){
+		_handle_cell = new ConwayCell('*');
+	}
+}
 
-// Cell::Cell(const Cell& rhs){
-// 	_handle_cell = rhs._handle_cell;
-// }
+Cell::Cell(const Cell& rhs){
+	_handle_cell = rhs._handle_cell;
+}
 
-// Cell& Cell::operator =(const Cell& rhs){
-// 	_handle_cell = rhs._handle_cell;
-// 	return * this;
-// }
+Cell& Cell::operator =(const Cell& rhs){
+	_handle_cell = rhs._handle_cell;
+	return * this;
+}
 
-// Cell::~Cell(){
-// 	delete _handle_cell;
-// }
+Cell::~Cell(){
+	delete _handle_cell;
+}
 
-// AbstractCell * Cell::operator ->(){
-// 	return _handle_cell;
-// }
+AbstractCell * Cell::operator ->(){
+	return _handle_cell;
+}
 
-// bool Cell::isAlive(){
-// 	return _handle_cell->isAlive();
-// }
+bool Cell::isAlive(){
+	return _handle_cell->isAlive();
+}
 
-// bool Cell::countDiagonals(){
-// 	return _handle_cell->countDiagonals();
-// }
+bool Cell::countDiagonals(){
+	return _handle_cell->countDiagonals();
+}
 
-// void Cell::updateLife(int neighbors){
-// 	_handle_cell->updateLife(neighbors);
-// }
+void Cell::updateLife(int neighbors){
+	_handle_cell->updateLife(neighbors);
+}
 
 //------------------
 // friend_functions
@@ -173,75 +179,75 @@ ostream& operator <<(ostream& lhs, const FredkinCell& rhs){
 }
 
 ostream& operator <<(ostream& lhs, const Cell& rhs){
-	return lhs << (rhs._handle_cell)->_state;
+	return lhs << (rhs._handle_cell);
 }
 
 //------
 // Life
 //------
 
-Life::Life(int y, int x){
-	_x(x);
-	_y(y);
-	_generation(0);
-	board = new vector<T>(((x+2)*(y+2)), T());
-	neighbor_board = new vector<T>((x+2)*(y+2), 0);
-} 
+// Life::Life(int y, int x){
+// 	_x(x);
+// 	_y(y);
+// 	_generation(0);
+// 	board = new vector<T>(((x+2)*(y+2)), T());
+// 	neighbor_board = new vector<T>((x+2)*(y+2), 0);
+// } 
 
-void Life::readInGrid(istream & r){
-	string s;
-	char currentCell; 
-	getline(r, s);
+// void Life::readInGrid(istream & r){
+// 	string s;
+// 	char currentCell; 
+// 	getline(r, s);
 
-	for(int row = 1; row <= _y; ++row){
-		istringstream in(s);
-		for(int col = 1; col <= _x; ++col){
-			in >> currentCell;
-			board[((_x+2)*row) + col] = (new T(currentCell));
-			if(currentCell != '.') ++_population;
-		}
-		getline(r, s);
-	}
-}
+// 	for(int row = 1; row <= _y; ++row){
+// 		istringstream in(s);
+// 		for(int col = 1; col <= _x; ++col){
+// 			in >> currentCell;
+// 			board[((_x+2)*row) + col] = (new T(currentCell));
+// 			if(currentCell != '.') ++_population;
+// 		}
+// 		getline(r, s);
+// 	}
+// }
 
-void Life::simulate(int evolution, int step){
-	std::cout << "Generation = 0, Population = " << _population << "." << std::endl;
-	for(int row = 1; row <= _x; ++row){
-		for (int col = 1; col <= _y; ++col){
-			std::cout << board[(_x+2)*row + col];
-		}
-		std::cout << std::endl;
-	}
-	std::cout << std::endl;
+// void Life::simulate(int evolution, int step){
+// 	std::cout << "Generation = 0, Population = " << _population << "." << std::endl;
+// 	for(int row = 1; row <= _x; ++row){
+// 		for (int col = 1; col <= _y; ++col){
+// 			std::cout << board[(_x+2)*row + col];
+// 		}
+// 		std::cout << std::endl;
+// 	}
+// 	std::cout << std::endl;
 
-	for(int i = 1; i <= evolution; ++i){		
-		for(int row = 1; row <= _x; ++row){
-			for (int col = 1; col <= _y; ++col){
-				int currindex = ((_x+2)*row) + col; 
-				if(board[currindex - (_x*2)]) ++neighbor_board[currindex];
-				if(board[currindex - 1]) ++neighbor_board[currindex];
-				if(board[currindex + 1]) ++neighbor_board[currindex];
-				if(board[currindex + (_x*2)]) ++neighbor_board[currindex];
-				if(board[currindex].countDiagonals()){
-					if(board[currindex - (_x*2) - 1]) ++neighbor_board[currindex];
-					if(board[currindex - (_x*2) + 1]) ++neighbor_board[currindex];
-					if(board[currindex + (_x*2) + 1]) ++neighbor_board[currindex];
-					if(board[currindex + (_x*2) - 1]) ++neighbor_board[currindex];
-				}
-			}
-		}
+// 	for(int i = 1; i <= evolution; ++i){		
+// 		for(int row = 1; row <= _x; ++row){
+// 			for (int col = 1; col <= _y; ++col){
+// 				int currindex = ((_x+2)*row) + col; 
+// 				if(board[currindex - (_x*2)]) ++neighbor_board[currindex];
+// 				if(board[currindex - 1]) ++neighbor_board[currindex];
+// 				if(board[currindex + 1]) ++neighbor_board[currindex];
+// 				if(board[currindex + (_x*2)]) ++neighbor_board[currindex];
+// 				if(board[currindex].countDiagonals()){
+// 					if(board[currindex - (_x*2) - 1]) ++neighbor_board[currindex];
+// 					if(board[currindex - (_x*2) + 1]) ++neighbor_board[currindex];
+// 					if(board[currindex + (_x*2) + 1]) ++neighbor_board[currindex];
+// 					if(board[currindex + (_x*2) - 1]) ++neighbor_board[currindex];
+// 				}
+// 			}
+// 		}
 
-		if(i%step == 0) std::cout << "Generation = " << 
-			i << ", Population = " << _population << "." << std::endl;
-		for(int row = 1; row <= _x; ++row){
-			for (int col = 1; col <= _y; ++col){
-				int currindex = ((_x+2)*row) + col;
-				board[currindex].updateLife(neighbor_board[currindex]);
-				if(i%step == 0) std::cout << board[currindex];
-			}
-			if(i%step == 0) std::cout << std::endl;
-		}
-		if(i%step == 0) std::cout << std::endl;
-	}
-}
+// 		if(i%step == 0) std::cout << "Generation = " << 
+// 			i << ", Population = " << _population << "." << std::endl;
+// 		for(int row = 1; row <= _x; ++row){
+// 			for (int col = 1; col <= _y; ++col){
+// 				int currindex = ((_x+2)*row) + col;
+// 				board[currindex].updateLife(neighbor_board[currindex]);
+// 				if(i%step == 0) std::cout << board[currindex];
+// 			}
+// 			if(i%step == 0) std::cout << std::endl;
+// 		}
+// 		if(i%step == 0) std::cout << std::endl;
+// 	}
+// }
 

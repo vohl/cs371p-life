@@ -21,6 +21,8 @@ public:
 
     AbstractCell(char state);
 
+    virtual ~AbstractCell();
+
     //a getter for your life, but techinically just telling
     //me if you are alive/ I dont necceserily have to maintain
     //a private member that represent if you are alive
@@ -121,6 +123,9 @@ class Life{
 public:
     using value_type = T;
 
+    using size_type = size_t;
+    using difference_type = ptrdiff_t;
+
     using reference = value_type&;
     using const_reference = const value_type&;
 
@@ -141,17 +146,17 @@ public:
 
     void simulate(int evolution, int step = 1);
 
-    // vector<value_type>::iterator begin();
+    typename vector<value_type>::iterator begin();
 
-    // vector<value_type>::const_iterator begin() const;
+    typename vector<value_type>::const_iterator begin() const;
 
-    // vector<value_type>::iterator end();
+    typename vector<value_type>::iterator end();
 
-    // vector<value_type>::const_iterator end() const;
+    typename vector<value_type>::const_iterator end() const;
 
-    // reference at(size_type);
+    reference at(size_type);
 
-    // const_reference at(size_type) const;
+    const_reference at(size_type) const;
 
     bool operator == (const Life &rhs);
 
