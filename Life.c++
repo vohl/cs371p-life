@@ -186,29 +186,30 @@ ostream& operator <<(ostream& lhs, const Cell& rhs){
 // Life
 //------
 
-// Life::Life(int y, int x){
-// 	_x(x);
-// 	_y(y);
-// 	_generation(0);
-// 	board = new vector<T>(((x+2)*(y+2)), T());
-// 	neighbor_board = new vector<T>((x+2)*(y+2), 0);
-// } 
+template<typename T>
+Life<T>::Life(int y, int x) : _x(x), _y(y), _generation(0), _population(0){
+	// _board = new vector<T>(((x+2)*(y+2)), T());
+	// _neighbor_board = new vector<T>((x+2)*(y+2), 0);
+	_board = new vector<T>();
+	_neighbor_board = new vector<T>();
+}
 
-// void Life::readInGrid(istream & r){
-// 	string s;
-// 	char currentCell; 
-// 	getline(r, s);
+template<typename T>
+void Life<T>::readInGrid(istream & r){
+	string s;
+	char currentCell; 
+	getline(r, s);
 
-// 	for(int row = 1; row <= _y; ++row){
-// 		istringstream in(s);
-// 		for(int col = 1; col <= _x; ++col){
-// 			in >> currentCell;
-// 			board[((_x+2)*row) + col] = (new T(currentCell));
-// 			if(currentCell != '.') ++_population;
-// 		}
-// 		getline(r, s);
-// 	}
-// }
+	for(int row = 1; row <= _y; ++row){
+		istringstream in(s);
+		for(int col = 1; col <= _x; ++col){
+			in >> currentCell;
+			_board[((_x+2)*row) + col] = (new T(currentCell));
+			if(currentCell != '.') ++_population;
+		}
+		getline(r, s);
+	}
+}
 
 // void Life::simulate(int evolution, int step){
 // 	std::cout << "Generation = 0, Population = " << _population << "." << std::endl;
@@ -251,3 +252,37 @@ ostream& operator <<(ostream& lhs, const Cell& rhs){
 // 	}
 // }
 
+template<typename T>
+void Life<T>::show(int evolution){
+	
+}
+
+template<typename T>
+typename vector<T>::iterator Life<T>::begin(){
+	return _board.begin();
+}
+
+template<typename T>
+typename vector<T>::const_iterator Life<T>::begin() const{
+	return _board.begin();
+}
+
+template<typename T>
+typename vector<T>::iterator Life<T>::end(){
+	return _board.end();
+}
+
+template<typename T>
+typename vector<T>::const_iterator Life<T>::end() const{
+	return _board.end();
+}
+
+template<typename T>
+T& Life<T>::at(int i){
+	return _board.at(i);
+}
+
+template<typename T>
+const T& Life<T>::at(int i) const{
+	return _board.at(i);
+}

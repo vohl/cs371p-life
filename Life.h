@@ -120,15 +120,6 @@ public:
 //------
 template<typename T>
 class Life{
-public:
-    using value_type = T;
-
-    using size_type = size_t;
-    using difference_type = ptrdiff_t;
-
-    using reference = value_type&;
-    using const_reference = const value_type&;
-
 private:
     int _x;
     int _y;
@@ -146,25 +137,25 @@ public:
 
     void simulate(int evolution, int step = 1);
 
-    typename vector<value_type>::iterator begin();
+    typename vector<T>::iterator begin();
 
-    typename vector<value_type>::const_iterator begin() const;
+    typename vector<T>::const_iterator begin() const;
 
-    typename vector<value_type>::iterator end();
+    typename vector<T>::iterator end();
 
-    typename vector<value_type>::const_iterator end() const;
+    typename vector<T>::const_iterator end() const;
 
-    reference at(size_type);
+    T& at(int i);
 
-    const_reference at(size_type) const;
+    const T& at(int i) const;
 
-    bool operator == (const Life &rhs);
+    // bool operator == (const Life &rhs);
 
-    bool operator == (const Life &rhs) const;
+    // bool operator == (const Life &rhs) const;
 
-    bool operator != (const Life &rhs);
+    // bool operator != (const Life &rhs);
 
-    bool operator != (const Life &rhs) const;
+    // bool operator != (const Life &rhs) const;
 };
 
 #endif
