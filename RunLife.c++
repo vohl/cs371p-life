@@ -10,6 +10,7 @@
 
 #include <cassert>   // assert
 #include <iostream>  // cout, endl
+#include "Life.h"
 
 // ----
 // main
@@ -23,35 +24,14 @@ int main () {
     // ----------------------
 
     cout << "*** Life<ConwayCell> 21x13 ***" << endl;
-    // Life<ConwayCell>(21, 13) x;
-    // istream(".............
-    // \n.............
-    // \n.............
-    // \n.............
-    // \n.............
-    // \n.............
-    // \n.............
-    // \n.............
-    // \n....*****....
-    // \n.......*.....
-    // \n......*......
-    // \n.....*.......
-    // \n....*****....
-    // \n.............
-    // \n.............
-    // \n.............
-    // \n.............
-    // \n.............
-    // \n.............
-    // \n.............
-    // \n.............\n") r;
-    // x.readInGrid(r);
-    // x.simulate(0);
-
     /*
     Simulate 12 evolutions.
     Print every grid (i.e. 0, 1, 2, 3, ... 12)
     */
+
+    Life<ConwayCell> c1(21, 13);
+
+    c1.readInGrid(cin);
 
     // ----------------------
     // Life<ConwayCell> 20x29
@@ -63,11 +43,15 @@ int main () {
     Print every 4th grid (i.e. 0, 4, 8, ... 28)
     */
 
+    Life<ConwayCell> c2(20, 29);
+
+    c2.readInGrid(cin);
+
     // -----------------------
     // Life<ConwayCell> 109x69
     // -----------------------
 
-    cout << "*** Life<ConwayCell> 106x69 ***" << endl;
+    cout << "*** Life<ConwayCell> 109x69 ***" << endl;
     /*
     Simulate 283 evolutions.
     Print the first 10 grids (i.e. 0, 1, 2, ... 9).
@@ -77,6 +61,10 @@ int main () {
     Simulate 2177 evolutions.
     Print the 2500th grid.
     */
+
+    Life<ConwayCell> c3(109, 69);
+
+    c3.readInGrid(cin);
 
     // -----------------------
     // Life<FredkinCell> 20x20
@@ -88,14 +76,22 @@ int main () {
     Print every grid (i.e. 0, 1, 2, ... 5)
     */
 
+    Life<FredkinCell> f1(20, 20);
+
+    f1.readInGrid(cin);
+
     // ----------------
     // Life<Cell> 20x20
     // ----------------
 
-    cout << "*** Life<FredkinCell> 20x20 ***" << endl;
+    cout << "*** Life<Cell> 20x20 ***" << endl;
     /*
     Simulate 5 evolutions.
     Print every grid (i.e. 0, 1, 2, ... 5)
     */
+
+    Life<Cell> f2(20, 20);
+
+    f2.readInGrid(cin);
 
     return 0;}
