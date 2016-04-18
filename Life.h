@@ -23,7 +23,7 @@ public:
 
     AbstractCell(char state);
 
-    virtual ~AbstractCell();
+    virtual ~AbstractCell() = 0;
 
     //a getter for your life, but techinically just telling
     //me if you are alive/ I dont necceserily have to maintain
@@ -35,6 +35,9 @@ public:
 
     //changing the state of the cell
     virtual void updateLife(int neighbors) = 0;
+
+    //cloning pattern so that when vector resizes copy constructor works as intended
+    virtual AbstractCell * clone() const = 0;
 
     //so we can print it out durring an update
     friend ostream& operator <<(ostream& lhs, const AbstractCell& rhs);
@@ -60,6 +63,8 @@ public:
 
     void updateLife(int neighbors);
 
+    ConwayCell * clone() const;
+
     friend ostream& operator <<(ostream& lhs, const ConwayCell& rhs);
 };
 
@@ -84,6 +89,8 @@ public:
 
     void updateLife(int neighbors);
 
+    FredkinCell * clone() const;
+
     friend ostream& operator <<(ostream& lhs, const FredkinCell& rhs);
 };
 
@@ -106,7 +113,7 @@ public:
 
     //This can be used to get the pointer indirectly call 
     //methods belonging to that little turdNugget
-    AbstractCell * operator ->();
+    AbstractCell * operator ->() const;
 
     bool isAlive();
 
@@ -145,7 +152,11 @@ public:
             for (int j = 0; j < (_x); ++j){
                 char c;
                 sin >> c;
-                _board.push_back(T(c));
+                T var = T(c);
+                if (var.isAlive()){
+                    ++_population;
+                }
+                _board.push_back(var);
                 _neighbor_board.push_back(0);
             }
             _board.push_back(T());
@@ -155,10 +166,10 @@ public:
         }
         string s;
         getline(r, s);
-        this->show();
     }
 
     void show(){
+        cout << "Generation = " << _generation << ", Population = " << _population << "." << endl;
         for (int i = 1; i <= _y; ++i){
             for (int j = 1; j <= _x; ++j){
                 cout << _board[(i * (_x + 2)) + j];

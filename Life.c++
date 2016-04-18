@@ -60,6 +60,10 @@ void ConwayCell::updateLife(int neighbors){
     }
 }
 
+ConwayCell * ConwayCell::clone() const{
+	return new ConwayCell(*this);
+}
+
 //-------------
 // FredkinCell
 //-------------
@@ -117,6 +121,10 @@ void FredkinCell::updateLife(int neighbors){
 	}
 }
 
+FredkinCell * FredkinCell::clone() const{
+	return new FredkinCell(*this);
+}
+
 //
 // Cell
 //
@@ -136,21 +144,20 @@ Cell::Cell(char state){
 
 //This needs to be fixed
 Cell::Cell(const Cell& rhs){
-			cout << "woah Nelly bae" << endl;
-
-	_handle_cell = rhs._handle_cell;
+	_handle_cell = rhs->clone();
 }
 
 Cell& Cell::operator =(const Cell& rhs){
-	_handle_cell = rhs._handle_cell;
-	return * this;
+	delete _handle_cell;
+	_handle_cell = rhs->clone();
+	return *this;
 }
 
 Cell::~Cell(){
 	delete _handle_cell;
 }
 
-AbstractCell * Cell::operator ->(){
+AbstractCell * Cell::operator ->() const{
 	return _handle_cell;
 }
 
