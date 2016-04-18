@@ -33,6 +33,8 @@ int main () {
 
     c1.readInGrid(cin);
 
+    c1.simulate(12, 1);
+
     // ----------------------
     // Life<ConwayCell> 20x29
     // ----------------------
@@ -46,6 +48,8 @@ int main () {
     Life<ConwayCell> c2(20, 29);
 
     c2.readInGrid(cin);
+
+    c2.simulate(28, 4);
 
     // -----------------------
     // Life<ConwayCell> 109x69
@@ -66,6 +70,11 @@ int main () {
 
     c3.readInGrid(cin);
 
+    c3.simulate(9, 1);
+    c3.simulate(283-9);
+    c3.simulate(40);
+    c3.simulate(2177);
+
     // -----------------------
     // Life<FredkinCell> 20x20
     // -----------------------
@@ -80,6 +89,8 @@ int main () {
 
     f1.readInGrid(cin);
 
+    f1.simulate(5, 1);
+
     // ----------------
     // Life<Cell> 20x20
     // ----------------
@@ -90,8 +101,9 @@ int main () {
     Print every grid (i.e. 0, 1, 2, ... 5)
     */
 
-    Life<Cell> f2(20, 20);
+    Life<Cell> h1(20, 20);
 
-    f2.readInGrid(cin);
+    h1.readInGrid(cin);
+    h1.simulate(5, 1);
 
     return 0;}

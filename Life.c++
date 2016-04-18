@@ -21,6 +21,24 @@ AbstractCell::AbstractCell(char state) : _state(state){}
 
 AbstractCell::~AbstractCell(){}
 
+bool AbstractCell::isAlive(){
+    return false;
+}
+
+bool AbstractCell::countDiagonals(){
+    return false;
+}
+
+void AbstractCell::updateLife(int neighbors){}
+
+char AbstractCell::getState(){
+    return _state;
+}
+
+AbstractCell * AbstractCell::clone() const{
+    return nullptr;
+}
+
 //------------
 // ConwayCell
 //------------
@@ -47,7 +65,7 @@ bool ConwayCell::countDiagonals(){
 
 void ConwayCell::updateLife(int neighbors){
     if (_life){
-        if (neighbors < 2 && neighbors > 3){
+        if (neighbors < 2 || neighbors > 3){
             _life = false;
             _state = '.';
         }
@@ -171,6 +189,9 @@ bool Cell::countDiagonals(){
 
 void Cell::updateLife(int neighbors){
 	_handle_cell->updateLife(neighbors);
+    if (_handle_cell->getState() == '+' || (_handle_cell->getState() >= '2' && _handle_cell->getState() <= '9')){
+        _handle_cell = new ConwayCell('*');
+    }
 }
 
 //------------------
@@ -191,64 +212,3 @@ ostream& operator <<(ostream& lhs, const FredkinCell& rhs){
 ostream& operator <<(ostream& lhs, const Cell& rhs){
 	return lhs << *(rhs._handle_cell);
 }
-
-//------
-// Life
-//------
-
-// void Life<T>::simulate(int evolution, int step){
-// 	std::cout << "Generation = 0, Population = " << _population << "." << std::endl;
-// 	for(int row = 1; row <= _x; ++row){
-// 		for (int col = 1; col <= _y; ++col){
-// 			std::cout << _board[(_x+2)*row + col];
-// 		}
-// 		std::cout << std::endl;
-// 	}
-// 	std::cout << std::endl;
-
-// 	for(int i = 1; i <= evolution; ++i){		
-// 		for(int row = 1; row <= _x; ++row){
-// 			for (int col = 1; col <= _y; ++col){
-// 				int currindex = ((_x+2)*row) + col; 
-// 				if(_board[currindex - (_x*2)]) ++_neighbor_board[currindex];
-// 				if(_board[currindex - 1]) ++_neighbor_board[currindex];
-// 				if(_board[currindex + 1]) ++_neighbor_board[currindex];
-// 				if(_board[currindex + (_x*2)]) ++_neighbor_board[currindex];
-// 				if(_board[currindex].countDiagonals()){
-// 					if(_board[currindex - (_x*2) - 1]) ++_neighbor_board[currindex];
-// 					if(_board[currindex - (_x*2) + 1]) ++_neighbor_board[currindex];
-// 					if(_board[currindex + (_x*2) + 1]) ++_neighbor_board[currindex];
-// 					if(_board[currindex + (_x*2) - 1]) ++_neighbor_board[currindex];
-// 				}
-// 			}
-// 		}
-
-// 		if(i%step == 0) std::cout << "Generation = " << 
-// 			i << ", Population = " << _population << "." << std::endl;
-// 		for(int row = 1; row <= _x; ++row){
-// 			for (int col = 1; col <= _y; ++col){
-// 				int currindex = ((_x+2)*row) + col;
-// 				_board[currindex].updateLife(_neighbor_board[currindex]);
-// 				if(i%step == 0) std::cout << _board[currindex];
-// 			}
-// 			if(i%step == 0) std::cout << std::endl;
-// 		}
-// 		if(i%step == 0) std::cout << std::endl;
-// 	}
-// }
-
-// 		for(int row = 1; row <= _x; ++row){
-// 			for (int col = 1; col <= _y; ++col){
-// 				int currindex = ((_x+2)*row) + col; 
-// 				if(board[currindex - (_x*2)]) ++neighbor_board[currindex];
-// 				if(board[currindex - 1]) ++neighbor_board[currindex];
-// 				if(board[currindex + 1]) ++neighbor_board[currindex];
-// 				if(board[currindex + (_x*2)]) ++neighbor_board[currindex];
-// 				if(board[currindex].countDiagonals()){
-// 					if(board[currindex - (_x*2) - 1]) ++neighbor_board[currindex];
-// 					if(board[currindex - (_x*2) + 1]) ++neighbor_board[currindex];
-// 					if(board[currindex + (_x*2) + 1]) ++neighbor_board[currindex];
-// 					if(board[currindex + (_x*2) - 1]) ++neighbor_board[currindex];
-// 				}
-// 			}
-// 		}

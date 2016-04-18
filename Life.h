@@ -9,6 +9,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -23,21 +24,23 @@ public:
 
     AbstractCell(char state);
 
-    virtual ~AbstractCell() = 0;
+    virtual ~AbstractCell();
 
     //a getter for your life, but techinically just telling
     //me if you are alive/ I dont necceserily have to maintain
     //a private member that represent if you are alive
-    virtual bool isAlive() = 0;
+    virtual bool isAlive();
 
     //should this cell consider diagonal neighbors??
-    virtual bool countDiagonals() = 0;
+    virtual bool countDiagonals();
 
     //changing the state of the cell
-    virtual void updateLife(int neighbors) = 0;
+    virtual void updateLife(int neighbors);
 
     //cloning pattern so that when vector resizes copy constructor works as intended
-    virtual AbstractCell * clone() const = 0;
+    virtual AbstractCell * clone() const;
+
+    char getState();
 
     //so we can print it out durring an update
     friend ostream& operator <<(ostream& lhs, const AbstractCell& rhs);
@@ -111,7 +114,7 @@ public:
 
     ~Cell();
 
-    //This can be used to get the pointer indirectly call 
+    //This can be used to get the pointer indirectly call
     //methods belonging to that little turdNugget
     AbstractCell * operator ->() const;
 
@@ -166,7 +169,6 @@ public:
         }
         string s;
         getline(r, s);
-        this->show();
     }
 
     void show(){
@@ -181,14 +183,47 @@ public:
     }
 
     void simulate(int evolution, int step = 0){
-        if (step > 0){
-            this->show();
-        }
         for (int i = 0; i < evolution; ++i){
-            // oh what goes here???? I wonder????
+            if (step > 0){
+                if ((i % step) == 0){
+                    this->show();
+                }
+            }
+            _population = 0;
 
-            this->show();
+            for (int row = 1; row <= _y; ++row){
+                for (int col = 1; col <= _x; ++col){
+                    int currindex = ((_x+2)*row) + col;
+                    int neighindex = ((_x)*(row-1)) + col - 1;
+
+                    _neighbor_board[neighindex] = 0;
+
+                    if ((_board[currindex - (_x+2)]).isAlive()) ++_neighbor_board[neighindex];
+                    if ((_board[currindex - 1]).isAlive()) ++_neighbor_board[neighindex];
+                    if ((_board[currindex + 1]).isAlive()) ++_neighbor_board[neighindex];
+                    if ((_board[currindex + (_x+2)]).isAlive()) ++_neighbor_board[neighindex];
+                    if ((_board[currindex]).countDiagonals()){
+                        if ((_board[currindex - (_x+2) - 1]).isAlive()) ++_neighbor_board[neighindex];
+                        if ((_board[currindex - (_x+2) + 1]).isAlive()) ++_neighbor_board[neighindex];
+                        if ((_board[currindex + (_x+2) + 1]).isAlive()) ++_neighbor_board[neighindex];
+                        if ((_board[currindex + (_x+2) - 1]).isAlive()) ++_neighbor_board[neighindex];
+                    }
+                }
+            }
+
+            for (int row = 1; row <= _y; ++row){
+                for (int col = 1; col <= _x; ++col){
+                    int currindex = ((_x+2)*row) + col;
+                    int neighindex = ((_x)*(row-1)) + col - 1;
+                    (_board[currindex]).updateLife(_neighbor_board[neighindex]);
+                    if ((_board[currindex]).isAlive()){
+                        ++_population;
+                    }
+                }
+            }
+            ++_generation;
         }
+        this->show();
     }
 
     typename vector<T>::iterator begin(){
@@ -214,14 +249,6 @@ public:
     const T& at(int i) const{
         return _board.at(i);
     }
-
-    // bool operator == (const Life &rhs);
-
-    // bool operator == (const Life &rhs) const;
-
-    // bool operator != (const Life &rhs);
-
-    // bool operator != (const Life &rhs) const;
 };
 
 #endif
