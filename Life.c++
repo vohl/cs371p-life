@@ -236,3 +236,20 @@ ostream& operator <<(ostream& lhs, const Cell& rhs){
 // 		if(i%step == 0) std::cout << std::endl;
 // 	}
 // }
+
+
+// 		for(int row = 1; row <= _x; ++row){
+// 			for (int col = 1; col <= _y; ++col){
+// 				int currindex = ((_x+2)*row) + col; 
+// 				if(board[currindex - (_x*2)]) ++neighbor_board[currindex];
+// 				if(board[currindex - 1]) ++neighbor_board[currindex];
+// 				if(board[currindex + 1]) ++neighbor_board[currindex];
+// 				if(board[currindex + (_x*2)]) ++neighbor_board[currindex];
+// 				if(board[currindex].countDiagonals()){
+// 					if(board[currindex - (_x*2) - 1]) ++neighbor_board[currindex];
+// 					if(board[currindex - (_x*2) + 1]) ++neighbor_board[currindex];
+// 					if(board[currindex + (_x*2) + 1]) ++neighbor_board[currindex];
+// 					if(board[currindex + (_x*2) - 1]) ++neighbor_board[currindex];
+// 				}
+// 			}
+// 		}

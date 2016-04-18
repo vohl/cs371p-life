@@ -179,7 +179,16 @@ public:
         cout << endl;
     }
 
-    void simulate(int evolution, int step = 1);
+    void simulate(int evolution, int step = 0){
+        if (step > 0){
+            this->show();
+        }
+        for (int i = 0; i < evolution; ++i){
+            // oh what goes here???? I wonder????
+
+            this->show();
+        }
+    }
 
     typename vector<T>::iterator begin(){
         return _board.begin();
