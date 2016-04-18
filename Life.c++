@@ -196,11 +196,11 @@ ostream& operator <<(ostream& lhs, const Cell& rhs){
 // Life
 //------
 
-// void Life::simulate(int evolution, int step){
+// void Life<T>::simulate(int evolution, int step){
 // 	std::cout << "Generation = 0, Population = " << _population << "." << std::endl;
 // 	for(int row = 1; row <= _x; ++row){
 // 		for (int col = 1; col <= _y; ++col){
-// 			std::cout << board[(_x+2)*row + col];
+// 			std::cout << _board[(_x+2)*row + col];
 // 		}
 // 		std::cout << std::endl;
 // 	}
@@ -210,15 +210,15 @@ ostream& operator <<(ostream& lhs, const Cell& rhs){
 // 		for(int row = 1; row <= _x; ++row){
 // 			for (int col = 1; col <= _y; ++col){
 // 				int currindex = ((_x+2)*row) + col; 
-// 				if(board[currindex - (_x*2)]) ++neighbor_board[currindex];
-// 				if(board[currindex - 1]) ++neighbor_board[currindex];
-// 				if(board[currindex + 1]) ++neighbor_board[currindex];
-// 				if(board[currindex + (_x*2)]) ++neighbor_board[currindex];
-// 				if(board[currindex].countDiagonals()){
-// 					if(board[currindex - (_x*2) - 1]) ++neighbor_board[currindex];
-// 					if(board[currindex - (_x*2) + 1]) ++neighbor_board[currindex];
-// 					if(board[currindex + (_x*2) + 1]) ++neighbor_board[currindex];
-// 					if(board[currindex + (_x*2) - 1]) ++neighbor_board[currindex];
+// 				if(_board[currindex - (_x*2)]) ++_neighbor_board[currindex];
+// 				if(_board[currindex - 1]) ++_neighbor_board[currindex];
+// 				if(_board[currindex + 1]) ++_neighbor_board[currindex];
+// 				if(_board[currindex + (_x*2)]) ++_neighbor_board[currindex];
+// 				if(_board[currindex].countDiagonals()){
+// 					if(_board[currindex - (_x*2) - 1]) ++_neighbor_board[currindex];
+// 					if(_board[currindex - (_x*2) + 1]) ++_neighbor_board[currindex];
+// 					if(_board[currindex + (_x*2) + 1]) ++_neighbor_board[currindex];
+// 					if(_board[currindex + (_x*2) - 1]) ++_neighbor_board[currindex];
 // 				}
 // 			}
 // 		}
@@ -228,15 +228,14 @@ ostream& operator <<(ostream& lhs, const Cell& rhs){
 // 		for(int row = 1; row <= _x; ++row){
 // 			for (int col = 1; col <= _y; ++col){
 // 				int currindex = ((_x+2)*row) + col;
-// 				board[currindex].updateLife(neighbor_board[currindex]);
-// 				if(i%step == 0) std::cout << board[currindex];
+// 				_board[currindex].updateLife(_neighbor_board[currindex]);
+// 				if(i%step == 0) std::cout << _board[currindex];
 // 			}
 // 			if(i%step == 0) std::cout << std::endl;
 // 		}
 // 		if(i%step == 0) std::cout << std::endl;
 // 	}
 // }
-
 
 // 		for(int row = 1; row <= _x; ++row){
 // 			for (int col = 1; col <= _y; ++col){
