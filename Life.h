@@ -166,6 +166,7 @@ public:
         }
         string s;
         getline(r, s);
+        this->show();
     }
 
     void show(){
