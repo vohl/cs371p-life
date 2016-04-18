@@ -172,21 +172,25 @@ public:
     }
 
     void show(){
-        cout << "Generation = " << _generation << ", Population = " << _population << "." << endl;
-        for (int i = 1; i <= _y; ++i){
+        cout << "Generation = " << _generation << ", Population = " << _population << ".\n";
+        for (int i = 1; i < _y; ++i){
             for (int j = 1; j <= _x; ++j){
                 cout << _board[(i * (_x + 2)) + j];
             }
-            cout << endl;
+            cout << "\n";
         }
-        cout << endl;
+        for (int j = 1; j <= _x; ++j){
+            cout << _board[(_y * (_x + 2)) + j];
+        }
     }
 
     void simulate(int evolution, int step = 0){
+        cout << "\n";
         for (int i = 0; i < evolution; ++i){
             if (step > 0){
                 if ((i % step) == 0){
                     this->show();
+                    cout << "\n\n";
                 }
             }
             _population = 0;

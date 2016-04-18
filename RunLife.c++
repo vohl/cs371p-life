@@ -23,7 +23,7 @@ int main () {
     // Life<ConwayCell> 21x13
     // ----------------------
 
-    cout << "*** Life<ConwayCell> 21x13 ***\n" << endl;
+    cout << "*** Life<ConwayCell> 21x13 ***" << endl;
     /*
     Simulate 12 evolutions.
     Print every grid (i.e. 0, 1, 2, 3, ... 12)
@@ -34,12 +34,13 @@ int main () {
     c1.readInGrid(cin);
 
     c1.simulate(12, 1);
+    cout << "\n";
 
     // ----------------------
     // Life<ConwayCell> 20x29
     // ----------------------
 
-    cout << "*** Life<ConwayCell> 20x29 ***\n" << endl;
+    cout << "*** Life<ConwayCell> 20x29 ***" << endl;
     /*
     Simulate 28 evolutions.
     Print every 4th grid (i.e. 0, 4, 8, ... 28)
@@ -50,12 +51,13 @@ int main () {
     c2.readInGrid(cin);
 
     c2.simulate(28, 4);
+    cout << "\n";
 
     // -----------------------
     // Life<ConwayCell> 109x69
     // -----------------------
 
-    cout << "*** Life<ConwayCell> 109x69 ***\n" << endl;
+    cout << "*** Life<ConwayCell> 109x69 ***" << endl;
     /*
     Simulate 283 evolutions.
     Print the first 10 grids (i.e. 0, 1, 2, ... 9).
@@ -74,12 +76,13 @@ int main () {
     c3.simulate(283-9);
     c3.simulate(40);
     c3.simulate(2177);
+    cout << "\n";
 
     // -----------------------
     // Life<FredkinCell> 20x20
     // -----------------------
 
-    cout << "*** Life<FredkinCell> 20x20 ***\n" << endl;
+    cout << "*** Life<FredkinCell> 20x20 ***" << endl;
     /*
     Simulate 5 evolutions.
     Print every grid (i.e. 0, 1, 2, ... 5)
@@ -90,12 +93,13 @@ int main () {
     f1.readInGrid(cin);
 
     f1.simulate(5, 1);
+    cout << "\n";
 
     // ----------------
     // Life<Cell> 20x20
     // ----------------
 
-    cout << "*** Life<Cell> 20x20 ***\n" << endl;
+    cout << "*** Life<Cell> 20x20 ***" << endl;
     /*
     Simulate 5 evolutions.
     Print every grid (i.e. 0, 1, 2, ... 5)
