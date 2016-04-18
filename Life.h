@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include "gtest/gtest_prod.h"
 
 using namespace std;
 
@@ -19,6 +20,10 @@ using namespace std;
 class AbstractCell{
 protected:
     char _state;
+
+    //friend tests
+    FRIEND_TEST(TestLife, ac_construct1);
+
 public:
     AbstractCell();
 
@@ -53,6 +58,26 @@ public:
 class ConwayCell : public AbstractCell{
 private:
 	bool _life;
+
+    //friend tests
+    FRIEND_TEST(TestLife, cc_construct1);
+    FRIEND_TEST(TestLife, cc_construct2);
+    FRIEND_TEST(TestLife, cc_construct3);
+    FRIEND_TEST(TestLife, cc_construct4);
+    FRIEND_TEST(TestLife, cc_updateLife1);
+    FRIEND_TEST(TestLife, cc_updateLife2);
+    FRIEND_TEST(TestLife, cc_updateLife3);
+    FRIEND_TEST(TestLife, cc_updateLife4);
+    FRIEND_TEST(TestLife, cc_updateLife5);
+    FRIEND_TEST(TestLife, cc_updateLife6);
+    FRIEND_TEST(TestLife, cc_updateLife7);
+    FRIEND_TEST(TestLife, cc_updateLife8);
+    FRIEND_TEST(TestLife, cc_updateLife9);
+    FRIEND_TEST(TestLife, cc_updateLife10);
+    FRIEND_TEST(TestLife, cc_updateLife11);
+    FRIEND_TEST(TestLife, cc_updateLife12);
+    FRIEND_TEST(TestLife, cc_clone);
+
 public:
     ConwayCell();
 
@@ -79,6 +104,12 @@ class FredkinCell : public AbstractCell{
 private:
     bool _life;
     int _age;
+
+    //friend tests
+    FRIEND_TEST(TestLife, fc_construct0);
+    FRIEND_TEST(TestLife, fc_construct1);
+
+
 public:
     FredkinCell();
 
