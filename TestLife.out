@@ -1,0 +1,346 @@
+==17034== Memcheck, a memory error detector
+==17034== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==17034== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==17034== Command: ./TestLife
+==17034== 
+Running main() from gtest_main.cc
+[==========] Running 72 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 72 tests from TestLife
+[ RUN      ] TestLife.ac_construct1
+[       OK ] TestLife.ac_construct1 (6 ms)
+[ RUN      ] TestLife.ac_isAlive
+[       OK ] TestLife.ac_isAlive (2 ms)
+[ RUN      ] TestLife.ac_countDiagonals
+[       OK ] TestLife.ac_countDiagonals (2 ms)
+[ RUN      ] TestLife.ac_getState
+[       OK ] TestLife.ac_getState (2 ms)
+[ RUN      ] TestLife.ac_clone
+[       OK ] TestLife.ac_clone (2 ms)
+[ RUN      ] TestLife.cc_construct0
+[       OK ] TestLife.cc_construct0 (2 ms)
+[ RUN      ] TestLife.cc_construct1
+[       OK ] TestLife.cc_construct1 (2 ms)
+[ RUN      ] TestLife.cc_construct2
+[       OK ] TestLife.cc_construct2 (2 ms)
+[ RUN      ] TestLife.cc_construct3
+[       OK ] TestLife.cc_construct3 (1 ms)
+[ RUN      ] TestLife.cc_construct4
+[       OK ] TestLife.cc_construct4 (2 ms)
+[ RUN      ] TestLife.cc_isAlive1
+[       OK ] TestLife.cc_isAlive1 (2 ms)
+[ RUN      ] TestLife.cc_isAlive2
+[       OK ] TestLife.cc_isAlive2 (1 ms)
+[ RUN      ] TestLife.cc_countDiagonals
+[       OK ] TestLife.cc_countDiagonals (2 ms)
+[ RUN      ] TestLife.cc_updateLife1
+[       OK ] TestLife.cc_updateLife1 (2 ms)
+[ RUN      ] TestLife.cc_updateLife2
+[       OK ] TestLife.cc_updateLife2 (2 ms)
+[ RUN      ] TestLife.cc_updateLife3
+[       OK ] TestLife.cc_updateLife3 (2 ms)
+[ RUN      ] TestLife.cc_updateLife4
+[       OK ] TestLife.cc_updateLife4 (2 ms)
+[ RUN      ] TestLife.cc_updateLife5
+[       OK ] TestLife.cc_updateLife5 (2 ms)
+[ RUN      ] TestLife.cc_updateLife6
+[       OK ] TestLife.cc_updateLife6 (1 ms)
+[ RUN      ] TestLife.cc_updateLife7
+[       OK ] TestLife.cc_updateLife7 (2 ms)
+[ RUN      ] TestLife.cc_updateLife8
+[       OK ] TestLife.cc_updateLife8 (2 ms)
+[ RUN      ] TestLife.cc_updateLife9
+[       OK ] TestLife.cc_updateLife9 (2 ms)
+[ RUN      ] TestLife.cc_updateLife10
+[       OK ] TestLife.cc_updateLife10 (2 ms)
+[ RUN      ] TestLife.cc_updateLife11
+[       OK ] TestLife.cc_updateLife11 (2 ms)
+[ RUN      ] TestLife.cc_updateLife12
+[       OK ] TestLife.cc_updateLife12 (1 ms)
+[ RUN      ] TestLife.cc_clone
+[       OK ] TestLife.cc_clone (3 ms)
+[ RUN      ] TestLife.fc_construct0
+[       OK ] TestLife.fc_construct0 (3 ms)
+[ RUN      ] TestLife.fc_construct1
+[       OK ] TestLife.fc_construct1 (2 ms)
+[ RUN      ] TestLife.fc_construct2
+[       OK ] TestLife.fc_construct2 (2 ms)
+[ RUN      ] TestLife.fc_construct3
+[       OK ] TestLife.fc_construct3 (3 ms)
+[ RUN      ] TestLife.fc_isAlive1
+[       OK ] TestLife.fc_isAlive1 (1 ms)
+[ RUN      ] TestLife.fc_isAlive2
+[       OK ] TestLife.fc_isAlive2 (1 ms)
+[ RUN      ] TestLife.fc_countDiagonals
+[       OK ] TestLife.fc_countDiagonals (2 ms)
+[ RUN      ] TestLife.fc_updateLife1
+[       OK ] TestLife.fc_updateLife1 (2 ms)
+[ RUN      ] TestLife.fc_updateLife2
+[       OK ] TestLife.fc_updateLife2 (3 ms)
+[ RUN      ] TestLife.fc_updateLife3
+[       OK ] TestLife.fc_updateLife3 (3 ms)
+[ RUN      ] TestLife.fc_updateLife4
+[       OK ] TestLife.fc_updateLife4 (3 ms)
+[ RUN      ] TestLife.fc_updateLife5
+[       OK ] TestLife.fc_updateLife5 (2 ms)
+[ RUN      ] TestLife.fc_updateLife6
+[       OK ] TestLife.fc_updateLife6 (3 ms)
+[ RUN      ] TestLife.fc_clone
+[       OK ] TestLife.fc_clone (4 ms)
+[ RUN      ] TestLife.cell_construct0
+[       OK ] TestLife.cell_construct0 (2 ms)
+[ RUN      ] TestLife.cell_construct1
+[       OK ] TestLife.cell_construct1 (2 ms)
+[ RUN      ] TestLife.cell_construct2
+[       OK ] TestLife.cell_construct2 (2 ms)
+[ RUN      ] TestLife.cell_construct3
+[       OK ] TestLife.cell_construct3 (2 ms)
+[ RUN      ] TestLife.cell_construct4
+[       OK ] TestLife.cell_construct4 (1 ms)
+[ RUN      ] TestLife.cell_construct5
+[       OK ] TestLife.cell_construct5 (3 ms)
+[ RUN      ] TestLife.cell_construct6
+[       OK ] TestLife.cell_construct6 (2 ms)
+[ RUN      ] TestLife.cell_cconstruct1
+[       OK ] TestLife.cell_cconstruct1 (2 ms)
+[ RUN      ] TestLife.cell_cconstruct2
+[       OK ] TestLife.cell_cconstruct2 (2 ms)
+[ RUN      ] TestLife.cell_ass_op1
+[       OK ] TestLife.cell_ass_op1 (2 ms)
+[ RUN      ] TestLife.cell_ass_op2
+[       OK ] TestLife.cell_ass_op2 (2 ms)
+[ RUN      ] TestLife.cell_updateLife1
+[       OK ] TestLife.cell_updateLife1 (3 ms)
+[ RUN      ] TestLife.cell_updateLife2
+[       OK ] TestLife.cell_updateLife2 (2 ms)
+[ RUN      ] TestLife.cell_updateLife3
+[       OK ] TestLife.cell_updateLife3 (2 ms)
+[ RUN      ] TestLife.cell_updateLife4
+[       OK ] TestLife.cell_updateLife4 (2 ms)
+[ RUN      ] TestLife.cell_updateLife5
+[       OK ] TestLife.cell_updateLife5 (2 ms)
+[ RUN      ] TestLife.cell_updateLife6
+[       OK ] TestLife.cell_updateLife6 (2 ms)
+[ RUN      ] TestLife.cell_updateLife7
+[       OK ] TestLife.cell_updateLife7 (2 ms)
+[ RUN      ] TestLife.cell_updateLife8
+[       OK ] TestLife.cell_updateLife8 (2 ms)
+[ RUN      ] TestLife.Life_construct1
+[       OK ] TestLife.Life_construct1 (6 ms)
+[ RUN      ] TestLife.Life_readInGrid1
+[       OK ] TestLife.Life_readInGrid1 (35 ms)
+[ RUN      ] TestLife.Life_readInGrid2
+[       OK ] TestLife.Life_readInGrid2 (4 ms)
+[ RUN      ] TestLife.Life_readInGrid3
+[       OK ] TestLife.Life_readInGrid3 (5 ms)
+[ RUN      ] TestLife.Life_simulate1
+
+Generation = 0, Population = 4.
+..***.....
+...*......
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+
+Generation = 1, Population = 6.
+..***.....
+..***.....
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........[       OK ] TestLife.Life_simulate1 (17 ms)
+[ RUN      ] TestLife.Life_simulate2
+
+Generation = 0, Population = 1.
+..........
+...*......
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+
+Generation = 1, Population = 0.
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........[       OK ] TestLife.Life_simulate2 (5 ms)
+[ RUN      ] TestLife.Life_simulate3
+
+Generation = 0, Population = 5.
+...***....
+...**.....
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+
+Generation = 1, Population = 4.
+...*.*....
+...*.*....
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........[       OK ] TestLife.Life_simulate3 (7 ms)
+[ RUN      ] TestLife.Life_simulate4
+
+Generation = 0, Population = 4.
+..***.....
+...*......
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+
+Generation = 1, Population = 6.
+..***.....
+..***.....
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........[       OK ] TestLife.Life_simulate4 (32 ms)
+[ RUN      ] TestLife.Life_simulate5
+
+Generation = 0, Population = 1.
+..........
+...*......
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+
+Generation = 1, Population = 0.
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+..........[       OK ] TestLife.Life_simulate5 (4 ms)
+[ RUN      ] TestLife.Life_simulate6
+
+Generation = 0, Population = 1.
+----1-----
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+Generation = 1, Population = 3.
+---0-0----
+----0-----
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------[       OK ] TestLife.Life_simulate6 (29 ms)
+[ RUN      ] TestLife.Life_simulate7
+
+Generation = 0, Population = 4.
+----1-----
+---111----
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+Generation = 1, Population = 9.
+----2-----
+--02220---
+---000----
+----------
+----------
+----------
+----------
+----------
+----------
+----------[       OK ] TestLife.Life_simulate7 (5 ms)
+[ RUN      ] TestLife.Life_iterator
+[       OK ] TestLife.Life_iterator (6 ms)
+[ RUN      ] TestLife.Life_at
+[       OK ] TestLife.Life_at (5 ms)
+[----------] 72 tests from TestLife (297 ms total)
+
+[----------] Global test environment tear-down
+[==========] 72 tests from 1 test case ran. (321 ms total)
+[  PASSED  ] 72 tests.
+==17034== 
+==17034== HEAP SUMMARY:
+==17034==     in use at exit: 32 bytes in 2 blocks
+==17034==   total heap usage: 6,132 allocs, 6,130 frees, 316,167 bytes allocated
+==17034== 
+==17034== LEAK SUMMARY:
+==17034==    definitely lost: 32 bytes in 2 blocks
+==17034==    indirectly lost: 0 bytes in 0 blocks
+==17034==      possibly lost: 0 bytes in 0 blocks
+==17034==    still reachable: 0 bytes in 0 blocks
+==17034==         suppressed: 0 bytes in 0 blocks
+==17034== Rerun with --leak-check=full to see details of leaked memory
+==17034== 
+==17034== For counts of detected and suppressed errors, rerun with: -v
+==17034== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+File 'Life.c++'
+Lines executed:94.50% of 109
+Branches executed:93.94% of 66
+Taken at least once:72.73% of 66
+Calls executed:76.09% of 46
+Creating 'Life.c++.gcov'
+File 'TestLife.c++'
+Lines executed:100.00% of 302
+Branches executed:63.24% of 2002
+Taken at least once:31.67% of 2002
+Calls executed:53.73% of 2187
+Creating 'TestLife.c++.gcov'

@@ -108,6 +108,14 @@ private:
     //friend tests
     FRIEND_TEST(TestLife, fc_construct0);
     FRIEND_TEST(TestLife, fc_construct1);
+    FRIEND_TEST(TestLife, fc_construct2);
+    FRIEND_TEST(TestLife, fc_construct3);
+    FRIEND_TEST(TestLife, fc_updateLife2);
+    FRIEND_TEST(TestLife, fc_updateLife3);
+    FRIEND_TEST(TestLife, fc_updateLife4);
+    FRIEND_TEST(TestLife, fc_updateLife5);
+    FRIEND_TEST(TestLife, fc_updateLife6);
+    FRIEND_TEST(TestLife, fc_clone);
 
 
 public:
@@ -134,6 +142,10 @@ public:
 class Cell{
 private:
     AbstractCell * _handle_cell;
+
+    //friend tests
+    FRIEND_TEST(TestLife, Life_simulate3);
+
 public:
     Cell();
 
@@ -170,6 +182,19 @@ private:
     int _population;
     vector<T> _board;
     vector<int> _neighbor_board;
+
+    //friend tests
+    FRIEND_TEST(TestLife, Life_construct1);
+    FRIEND_TEST(TestLife, Life_readInGrid1);
+    FRIEND_TEST(TestLife, Life_readInGrid2);
+    FRIEND_TEST(TestLife, Life_readInGrid3);
+    FRIEND_TEST(TestLife, Life_simulate1);
+    FRIEND_TEST(TestLife, Life_simulate2);
+    FRIEND_TEST(TestLife, Life_simulate3);
+    FRIEND_TEST(TestLife, Life_simulate4);
+    FRIEND_TEST(TestLife, Life_simulate5);
+    FRIEND_TEST(TestLife, Life_simulate6);
+    FRIEND_TEST(TestLife, Life_simulate7);
 
 public:
     Life(int y, int x) : _x(x), _y(y), _generation(0), _population(0){}
