@@ -1,0 +1,184 @@
+commit 8e223fd26ea82990cbb6e4900e17afae11f0d7ca
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Fri Apr 22 14:56:54 2016 -0500
+
+    final turnin
+
+commit 90765d45a6142dda0eb6752855be523d0027ec92
+Author: jtd2226 <joeldavi@utexas.edu>
+Date:   Mon Apr 18 23:37:57 2016 -0500
+
+    all tests written
+
+commit 894fbbbea307f80643ae7095454427d0661b553b
+Author: jtd2226 <joeldavi@utexas.edu>
+Date:   Mon Apr 18 14:19:30 2016 -0500
+
+    wrote unit tests for Abstract and ConwayCell
+
+commit 7aeae397b846ebfd5d4aa1884e6e91fbaeeec980
+Author: vohl <acvohl@gmail.com>
+Date:   Mon Apr 18 00:31:00 2016 -0500
+
+    fixed a new line issue
+
+commit db8de841335d8dad4bf2a396b182ee249065ab29
+Author: vohl <acvohl@gmail.com>
+Date:   Sun Apr 17 23:59:11 2016 -0500
+
+    make RunLife.tmp works, now unit tests
+
+commit 3da91a5792515e8c8ee46ada6b92c1a705482e3e
+Merge: 87ad812 5d63a77
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Sun Apr 17 21:24:11 2016 -0500
+
+    Merge branch 'dev' of https://github.com/vohl/cs371p-life into dev
+
+commit 87ad812f3007ac41fdff5bb26360a2b3d231132e
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Sun Apr 17 21:23:11 2016 -0500
+
+    something
+
+commit f0bcd1c15b656e354334ff41a29d710914c8e13c
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Sun Apr 17 21:12:03 2016 -0500
+
+    Pushing updates
+
+commit 5d63a777ec483fd80a8003028d56308119f722e0
+Author: jtd2226 <joeldavi@utexas.edu>
+Date:   Sun Apr 17 20:10:40 2016 -0500
+
+    added changes to I made to simulate in comments
+    
+    no changes to actual code. simulate is still commented out. I made it compile and found a few bugs
+
+commit 13eecd886911bfc8e19ea78c64d00a2f3ad55239
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Sun Apr 17 19:07:06 2016 -0500
+
+    I just have simulate to work on. had to bring life's implementation over inside the declaration
+
+commit 3406eef4f71c7f7917c1488c7700c5f58bea871b
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Sun Apr 17 02:19:55 2016 -0500
+
+    issue with the copy constructor, Need to create a clone pattern for derived classes
+
+commit cfe5cbb6dc653e4e0c4c39ebad906b0fddc3750f
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Sat Apr 16 02:18:13 2016 -0500
+
+    some bug fixes
+
+commit 0ef6c4894436ec3d5b84f7a0ff1fb9a91c9f400c
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Sat Apr 16 00:38:32 2016 -0500
+
+    finished fixing everything outside of life ... hopefully
+
+commit 2c1719050fa7c22e67ab2efda29f72dc47c035b5
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Fri Apr 15 17:47:49 2016 -0500
+
+    some clean up
+
+commit 15e984b542ef1b737de476c2ffb9baab5a7e3000
+Merge: 226615d 2769497
+Author: jtd2226 <joeldavi@utexas.edu>
+Date:   Fri Apr 15 17:09:12 2016 -0500
+
+    Merge branch 'dev' of https://github.com/vohl/cs371p-life into dev
+
+commit 226615d86ab87f5572bad93f7594a737dbc957f0
+Author: jtd2226 <joeldavi@utexas.edu>
+Date:   Fri Apr 15 17:09:02 2016 -0500
+
+    Life implementation
+
+commit 2769497c5f20afd5d7ba030fe9401380d55ce26a
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Fri Apr 15 17:08:20 2016 -0500
+
+    makefile fixed
+
+commit b79476a1c40d770dab4615122f66dc77f419d07d
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Fri Apr 15 16:25:25 2016 -0500
+
+    Wrote Cell handle class
+
+commit 20c63b779c57a160841fc729d7ddaa7742e25678
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Fri Apr 15 15:21:01 2016 -0500
+
+    empty default constructor defined for CC and FC
+
+commit fa1e822e253b0eca4204b47fb1a561e554b5007c
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Fri Apr 15 14:52:15 2016 -0500
+
+    Fixed one of the outstream freind function for cell
+
+commit fde009198b426bd765afa1d211d8445f3ab030b6
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Fri Apr 15 14:50:36 2016 -0500
+
+    This should finish Fredkin Cell
+
+commit 0e7c2be52747df8c5c5d3c231d03c62e69743ab8
+Merge: e1bfd54 8da0bc4
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Fri Apr 15 14:39:22 2016 -0500
+
+    Merge branch 'dev' of https://github.com/vohl/cs371p-life into dev
+
+commit e1bfd5483fd1c91d2990127f7682013e345fbbaf
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Fri Apr 15 14:39:05 2016 -0500
+
+    nothing to see here
+
+commit 8da0bc492bc827116fa5d86ae80cc949d8a7d17f
+Author: vohl <acvohl@gmail.com>
+Date:   Fri Apr 15 14:38:20 2016 -0500
+
+    pushing up .in file
+
+commit 73bbd86724d5799b5d0c7eed20b9f9c702d65cb1
+Author: vohl <acvohl@gmail.com>
+Date:   Fri Apr 15 14:26:26 2016 -0500
+
+    ConwayCell Written as well as FredkinCell constructor
+
+commit 68c073ad130eb70c3e437222b3b99be9fa117a6c
+Author: Andrew Vohl <vohl0803@cs.utexas.edu>
+Date:   Fri Apr 15 12:19:39 2016 -0500
+
+    ummmmmmmmmmm
+
+commit 3d20de8ec08c003a249065d0dc4fbf7f86a704cc
+Author: vohl <acvohl@gmail.com>
+Date:   Thu Apr 14 23:04:14 2016 -0500
+
+    general structure for the header file done
+
+commit 801863ed26a86641c1803872a4b35487bb81c648
+Author: vohl <acvohl@gmail.com>
+Date:   Mon Apr 11 15:10:37 2016 -0500
+
+    Added inheritance
+
+commit a5aece89716609e54226644bccef90143aeac7f3
+Author: vohl <acvohl@gmail.com>
+Date:   Mon Apr 11 15:09:20 2016 -0500
+
+    Creating the header file for Life
+
+commit 59021c5ddc12c091d0627b440c1bcd86a8d38770
+Author: vohl <acvohl@gmail.com>
+Date:   Mon Apr 11 12:40:56 2016 -0500
+
+    First commit
